@@ -42,11 +42,17 @@ const speak = () => {
   }
 
   if (textInput.value !== "") {
+    //Add background image to animate
+    body.style.background = "#141414 url(./dist/img/tenor.gif)";
+    body.style.backgroundRepeat = "repeat-x";
+    body.style.backgroundSize = "100% 100%";
+
     //Get speak text
     const speakText = new SpeechSynthesisUtterance(textInput.value);
     //Speak end
     speakText.onend = e => {
       console.log("Done speaking...");
+      body.style.background = "#141414";
     };
     //Speak error
     speakText.onerror = e => {
